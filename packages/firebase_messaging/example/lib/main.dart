@@ -153,7 +153,15 @@ class _PushMessagingExampleState extends State<PushMessagingExample> {
       },
     );
     _firebaseMessaging.requestNotificationPermissions(
-        const IosNotificationSettings(sound: true, badge: true, alert: true));
+        const IosNotificationSettings(
+            sound: true,
+            badge: true,
+            alert: true,
+            provisional: false,
+            carPlay: false,
+            notificationSetting: false,
+            criticalAlert: false));
+
     _firebaseMessaging.onIosSettingsRegistered
         .listen((IosNotificationSettings settings) {
       print("Settings registered: $settings");
